@@ -12,7 +12,3 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  env:
-    - ${{ inputs.nim_auth_token }}
-    - ${{ inputs.auto_deploy }}
-    - ${{ inputs.nim_cli_options }}
