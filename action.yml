@@ -1,0 +1,18 @@
+name: 'Nimbella CLI'
+description: 'Install and configures Nimbella CLI in runtime environment. Optionally, auto-deploy project source code.'
+inputs:
+  nim_auth_token:
+    description: 'Authentication token from nim auth export'
+    required: true
+  auto_deploy:
+    description: 'Auto-deploy project from current directory after CLI install'
+    default: true
+  nim_cli_options:
+    description: 'Pass custom CLI options'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    - ${{ inputs.nim_auth_token }}
+    - ${{ inputs.auto_deploy }}
+    - ${{ inputs.nim_cli_options }}
